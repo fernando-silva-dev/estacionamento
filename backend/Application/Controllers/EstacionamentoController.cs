@@ -24,8 +24,8 @@ public class EstacionamentoController : ControllerBase
     }
 
     [HttpPatch("{id}")]
-    public void Patch([FromRoute] long id, [FromBody] DateTime saida)
+    public void Patch([FromRoute] long id, [FromBody] Estacionamento estacionamento)
     {
-        repository.MarcarSaida(id, saida);
+        repository.MarcarSaida(id, estacionamento.HoraSaida.Value);
     }
 }

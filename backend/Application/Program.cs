@@ -13,6 +13,8 @@ builder.Services.AddScoped<Context>();
 builder.Services.AddScoped<PrecoRepository>();
 builder.Services.AddScoped<EstacionamentoRepository>();
 
+builder.Services.AddCors(config => config.AddPolicy("allow-all", p => p.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -21,11 +23,12 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseCors("allow-all");
 
-app.UseHttpsRedirection();
+// app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-app.MapControllers();
+app.MapControllers().AllowAnonymous();
 
 app.Run();

@@ -5,8 +5,12 @@ import GridEstacionamentos from './GridEstacionamentos';
 
 export default function App() {
   return (
-    <div style={{ height: 400, width: '80%', margin: 50 }}>
-      <GridEstacionamentos />
-      <GridPrecos />
+    <div style={{ width: '80%', margin: 50 }}>
+      <div style={{ margin: 50, }}>
+        <GridEstacionamentos />
+      </div>
+      <div style={{ margin: 50, }}>
+        <GridPrecos />
+      </div>
     </div>);
 }
